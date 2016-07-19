@@ -160,11 +160,23 @@ console.log('Finished Execution');
 	-Symbol: Used in ES6
 */
 
+// Lecture 21: Conceptual Aside
 
+/*
+	-Operators: A special function that is syntactically (written) differently
+		-Take two parameters and return one result.
+	-Infix notation: Operators sits in between two parameters.
+*/
 
+var a = 3 + 4;
+console.log(a);
 
+// Lecture 22: Operator Precedence and Associativity
 
-
+/*
+	-Associativity: What order operator functions gets called in: L-R or R-L (when functions have same precedence).
+	-Operator Precedence: Which operator function gets called first; in order of precedence.
+*/
 
 
 
