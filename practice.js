@@ -14,7 +14,7 @@ var a = 'Hello World!';
 console.log(a);
 
 // Lecture 12 Conceptual Aside
-	/* 
+	/*
 	-Single Threaded: One command at a time
 		-Caveat, Javascript is not the only thing happening within a browser.
 	-Synchronous: One line (and order in this case) at a time
@@ -49,7 +49,7 @@ var d;
 // Lecture 15
 /*
 	-Variable Environment: Where variables live an how they live relative to each other.
-	
+
 */
 
 function b() {
@@ -106,7 +106,7 @@ b();
 		-Declared inside a block ()
 
 if (a > b) {
-	let c = true;	
+	let c = true;
 }
 */
 
@@ -120,7 +120,7 @@ if (a > b) {
 			-Rendering Engine, HTTP Request
 			-Has hooks to talk to each other
 	-Event Queue: List of events that are happening. If JS Engine wants to be notified, gets placed.
-	-When stack is empty, JS engine looks at Event Queue periodically and then creates Execution Context 
+	-When stack is empty, JS engine looks at Event Queue periodically and then creates Execution Context
 	-Browser is putting things asynchronously
 	-Asynchronous is possible in JS but it's about events happening outside JS Engine.
 */
@@ -175,37 +175,75 @@ console.log(a);
 
 /*
 	-Associativity: What order operator functions gets called in: L-R or R-L (when functions have same precedence).
+		-If they have same precedence, helps to resolve.
 	-Operator Precedence: Which operator function gets called first; in order of precedence.
+	-What happens if you have the same associativity?
+
+
 */
 
+var a = 3 + 4 * 5;
+console.log(a);
 
+var a = 2, b = 3, c = 4;
+a = b = c;
+console.log(a);
+console.log(b);
+console.log(c);
 
+// Lecture 23: Coercion
 
+/*
+	Coercion: Convering a value from one type to another
+		-Due to it be a dynamic type language
 
+*/
 
+// Lecture 24: Comparison Operators
 
+/*
 
+*/
 
+console.log(1 < 2 < 3) // returns true
+console.log(3 < 2 < 1) //returns true (L to R, gives False < 1 aka 0 < 1)
+// true becomes a 1
+// undefined is notation
+// null is 0, however null == 0 (returns false)
+"" == 0
+"" == false
+// Both return true
+// Use strict equality aka ===
+// Object.is in ES6
 
+// Lecture 27: Existence and Booleans
+/*
+	-All things with a lack of existence will yield False
+*/
+var a;
 
+a = 0;
 
+if (a || a === 0) {
+	console.log('Something is there.');
+};
+// returns true and console logs it...
 
+// Lecture 28: Default Values
 
+/*
+	-Operators are functions that return values
+*/
 
+function greet(name) {
+	console.console.log(name);
+	console.log('Hello'  + name);
+}
 
+greet();
 
+// Lecture 29: Framework Aside
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+	-
+*/
