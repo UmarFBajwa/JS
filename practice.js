@@ -244,6 +244,116 @@ greet();
 
 // Lecture 29: Framework Aside
 
+// Lecture 30: Objects and Functions
+
+/*
+	-Objects: Collections of NV pairs
+		-How does it reside in memory?
+			-Primitive (Property), Object (Property), Function (Method)
+			-Core Address with References
+		-Dot is just a function that takes the objects and passes the string.
+		-Below is not preferred way to create new object
+*/
+
+var person = new Object();
+person["firstname"] = "Tony";
+person["lastname"] = "Alicia";
+
+var firstNameProperty = "firstname";
+
+console.log(person);
+console.log(person[firstNameProperty]);
+
+console.log(person.firstname);
+console.log(person.lastname);
+
+person.address = new Object();
+
+person.address.street = "111 Main St.";
+
+// Lecture 31: Objects and Object Literals
+
+/*
+	-When JS engine is parsing syntax, assumes you are creating a new object.
+	-Can setup and initialize...
+	-JS is very liberal about using white space.
+*/
+
+var person = {firstname: 'Tony'};
+
+function greet(person) {
+	console.log('Hi' + person.firstname);
+}
+
+greet(Tony);
+greet({
+	firstname: 'Mary';
+});
+// Above shows creating object on the fly.
+// Object Literal, Dot, Operators do the same thing under the hood.
+
+// Lecture 32: Framework Aside: Faking Namespace
+
+/*
+	-Namespace: Container for Variables and functions
+		-Typically to keep variables and functions with the same name separate
+	-No Namespacing in JS
+
+*/
+
+// Lecture 33: JSON and Object Literals
+
+/*
+	-Use to be XML
+	-<object></object>
+	-Properties have to be in quotes
+	-JSON has stricter rules. Can use JSON.stringify or JSON.parse to go back and forth.
+*/
+
+// Lecture 34: Functions are Objects
+
+/*
+	-First Class Functions: Everything you can do with other types you can do with functions.
+		-Assign them to variables, pass them around, or crate them on the fly.
+		-Has special Properties
+			-Can be Anonymous
+			-Code can be set. Will be invocable.
+				-Code is a property of that function.
+*/
+
+// Lecture 35: Functions Statements and Expressions
+/*
+	Function Expression: Unit of code that results in a value; doesn't have to save in a variable
+	Statement: Does not result in value.
+*/
+
+greet();
+
+function greet() {
+	console.log('Hi');
+}
+
+// Above is hoisted while below sets variable as undefined primitive.
+// Hence function expressions are not hoisted.
+
+anonymousGreet();
+
+var anonymousGreet =m function() {
+	console.log('Hi');
+}
+
+function log(a) {
+	a();
+}
+
+log(function() {
+	console.log('Hi');
+});
+
+// Example of Functional Programming above
+
+// Lecture 36: Conceptual Aside: By Value vs By Reference
+
 /*
 	-
 */
