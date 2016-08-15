@@ -433,8 +433,37 @@ c.log();
 	-Automatic Semicolon Insertion: Injects where character return is.
 */
 
-// Lecture 43: Framework Aside: 
+// Lecture 43: Framework Aside: Whitespace
 
 /*
+	-Whitespace: Invisible characters that create literal 'space' in your written code.
+*/
+
+// Lecture 44: IIFEs
+
+/*
+	-You can invoke at point of creation.
+	-Put parentheses around function.
 	-
 */
+
+// Function Statement
+function greet(name) {
+	console.log('Hello' + name);
+}
+
+greet();
+
+// Function Expression (sort of Object Literal, not in memoryspace)
+
+var greetFunc = function(name) {
+	console.log('Hello' + name);
+};
+
+greetFunc();
+
+// IIFE
+
+var greetFunc = function(name) {
+	return 'Hello' + name;
+}();
