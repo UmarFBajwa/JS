@@ -355,5 +355,115 @@ log(function() {
 // Lecture 36: Conceptual Aside: By Value vs By Reference
 
 /*
+	-In both cases talking about Variables.
+	-Reference points to same memory space whereas Value makes a clone and separate memoryspace.
+	-Mutate: To change something.
+	-Equal operator sets up new memory space (new address)
+*/
+
+var a = 3;
+var b;
+
+b = a;
+a = 2;
+console.log(a);
+console.log(b);
+
+// By Reference
+
+var c = { greeting: 'Hi' };
+var d;
+
+d = c;
+c.greeting = 'hello';
+// Both pointing to same point aka greeting. Just aliases.
+console.log(c);
+console.log(d);
+
+// Lecture 37: Objects, Functions, and 'This'
+
+/*
+	-When function invoked, execution context is created (Creation Phase)
+	-Every time a function is run, JS engine gives us this.
+
+*/
+
+var c = {
+	name: 'The c object';
+	log: function() {
+		this.name = 'Updated c object';
+		console.log(this);
+
+		var setname = function(newname) {
+			this.name = newname;
+		}
+
+		setname('Updated again! The c object');
+		console.log(this);
+	};
+};
+
+c.log();
+// Setname changes in global namespace but console.log will not reflect.
+// If you set var self = this  right below log function and then use self instead of this.
+// Let keyword is to replace the var keyword to help with this issue.
+
+// Lecture 38: Conceptual Aside: Arrays
+// Lecture 39: Arguments
+
+/*
+	-Next version won't have this.
+	-Arguments: Contains list of all parameters/values you pass to a function.
+	-Will become depracted.
+	-Spread: Add ...name
+
+*/
+
+// Lecture 40: Framework Aside: Function Overloading
+
+// Lecture 41: Conceptual Aside: Syntax Parsers
+
+/*
+	-Intermediate programs that translates code so that your computer can understand.
+*/
+
+// Lecture 42: Dangerous Aside
+
+/*
+	-Automatic Semicolon Insertion: Injects where character return is.
+*/
+
+// Lecture 43: Framework Aside: Whitespace
+
+/*
+	-Whitespace: Invisible characters that create literal 'space' in your written code.
+*/
+
+// Lecture 44: IIFEs
+
+/*
+	-You can invoke at point of creation.
+	-Put parentheses around function.
 	-
 */
+
+// Function Statement
+function greet(name) {
+	console.log('Hello' + name);
+}
+
+greet();
+
+// Function Expression (sort of Object Literal, not in memoryspace)
+
+var greetFunc = function(name) {
+	console.log('Hello' + name);
+};
+
+greetFunc();
+
+// IIFE
+
+var greetFunc = function(name) {
+	return 'Hello' + name;
+}();
