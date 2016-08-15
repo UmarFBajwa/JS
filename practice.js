@@ -313,5 +313,47 @@ greet({
 // Lecture 34: Functions are Objects
 
 /*
+	-First Class Functions: Everything you can do with other types you can do with functions.
+		-Assign them to variables, pass them around, or crate them on the fly.
+		-Has special Properties
+			-Can be Anonymous
+			-Code can be set. Will be invocable.
+				-Code is a property of that function.
+*/
+
+// Lecture 35: Functions Statements and Expressions
+/*
+	Function Expression: Unit of code that results in a value; doesn't have to save in a variable
+	Statement: Does not result in value.
+*/
+
+greet();
+
+function greet() {
+	console.log('Hi');
+}
+
+// Above is hoisted while below sets variable as undefined primitive.
+// Hence function expressions are not hoisted.
+
+anonymousGreet();
+
+var anonymousGreet =m function() {
+	console.log('Hi');
+}
+
+function log(a) {
+	a();
+}
+
+log(function() {
+	console.log('Hi');
+});
+
+// Example of Functional Programming above
+
+// Lecture 36: Conceptual Aside: By Value vs By Reference
+
+/*
 	-
 */
