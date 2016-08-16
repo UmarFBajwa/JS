@@ -444,7 +444,9 @@ c.log();
 /*
 	-You can invoke at point of creation.
 	-Put parentheses around function.
-	-
+	-With new execution context, can call desired variable so as to not interfere with other code.
+	-Wrap entire code with parentheses
+	-Global is reusable accross server whereas window is not.
 */
 
 // Function Statement
@@ -467,3 +469,125 @@ greetFunc();
 var greetFunc = function(name) {
 	return 'Hello' + name;
 }();
+
+// Lecture 46: Understanding Closures
+
+/*
+	-Closure: Execution context can close in outside variables.
+*/
+
+function greet(whattosay) {
+	return function (name) {
+		console.log(whattosay) + ' ' + name);
+	}
+}
+
+greet('Hi')('Tony');
+
+var sayHi = greet('Hi');
+sayHi('Tony');
+
+// Lecture 47: Understanding Closures Part 2
+
+/*
+	-
+*/
+
+function buildFunctions() {
+	var arr = [];
+
+	for (var i = 0; i < 3, i++) {
+		arr.push(
+			function () {
+				console.log(i);
+			}
+		)
+	}
+	return arr;
+}
+
+var fs = buildFunctions()
+
+fs[0]();
+fs[1]();
+fs[2]();
+// All return 3 because that is what i is.
+
+// Lecture 48: Framework Aside: Function Factories
+
+/*
+	-Factory: Returns or makes something for you.
+	-
+*/
+
+function makeGreeting(language) {
+	return function (firstname, lastname) {
+		if (language === 'en') {
+			console.log('Hello ' + firstname + ' ' + lastname);
+		}
+		if (language === 'es') {
+			console.log('Hola ' + firstname + ' ' + lastname);
+		}
+	}
+}
+
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('es');
+
+greetEnglish('John', 'Doe');
+greetSpanish('John', 'Doe');
+
+// Lecture 49: Closures and Callbacks
+
+/*
+	-setTimeout uses Expressions and Closures.
+*/
+
+
+// Lecture 50: Calls(), Bind() and Apply()
+
+/*
+	-Bind functions makes a copy of function.
+
+logName();
+logName.call(person, 'en');
+logName.apply (person, ['en'])
+
+	-Latter determines what this is and actually calls it.
+	-Apply requires an array.
+*/
+
+// Function Borrowing
+// Function Carrying
+
+function multiply(a,b) {
+	return a*b;
+}
+var multipleByTwo = multiply.bind(this, 2);
+
+// Lecture 51: Functional Programming
+
+/*
+	-Utilizes first class functions.
+	-You functions should not mutate data at lower levels.
+*/
+
+var checkPastLimitSimplified = function (limiter) {
+	return function (limiter, item) {
+		return item > limiter;
+	}.bind(this, limiter);
+};
+
+// Lecture 52: Functional Programming Continued
+
+/*
+	-Underscore.JS Library
+		-Shows how it does what is does.
+		-Underscore.JS
+		-Implements a lot of Functional Programming
+	-Alternate called Lodash
+		-Works a bit faster.
+	-
+*/
+
+// SECTION 5
