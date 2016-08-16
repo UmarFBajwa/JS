@@ -591,3 +591,34 @@ var checkPastLimitSimplified = function (limiter) {
 */
 
 // SECTION 5
+
+// Lecture 53: Object Oriented JS and Prototypal Inheritance
+
+/*
+	-Inheritance: One object gets access to the properties and methods of another object.
+	-Classical Inheritance
+		-Very verbose. A lot going on. Can become hard to figure out how is affecting others.
+		-Friend, Protected, Private, Inherited.
+	-Prototypal Inheritance
+		-Simple. Flexible. Extensible. Easy to Understand.
+*/
+
+// Lecture 54: Understanding the Prototype
+// Lecture 55: Everything is an Object (or a Primitive)
+// Lecture 55: Reflection and Extend
+
+/*
+	-All objects have a prototype property that references to another object called prototype.
+	-All primitives except Base Object have Primitive.
+	-Reflection: An object can look at itself, listing and changing its properties and methods.
+	-You can use extend to add other objects to the desired object.
+	-
+*/
+
+
+
+//
+
+/*
+	-
+*/
