@@ -707,8 +707,26 @@ class InformalPerson extends Person {
 
 // SECTION 7
 // Lecture 65: Initialization
+
 // Lecture 66: 'typeof', 'instanceof', and Figuring What Something Is
+
+/*
+	-typeof and instanceof
+	-Do different things.
+*/
+
 // Lecture 67: Strict Mode
+/*
+	-Must declare variable to define it
+	-Top of file or top of function
+	-Not every engine implements it the same way.
+*/
+
+function Person(a) {
+'use strict';
+
+	console.log(a)
+}
 // Lecture 68: Strict Mode Reference
 
 // SECTION 8:
