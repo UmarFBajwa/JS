@@ -591,3 +591,144 @@ var checkPastLimitSimplified = function (limiter) {
 */
 
 // SECTION 5
+
+// SECTION 6
+
+// Lecture 57: Function Constructors, 'new', and the History of JS
+/*
+	-Built by Brandon Eich
+	-Netscape, Microsoft, Oracle and Sun. Written eventually for browser. Named to attract Java developers.
+	-A class in Java is not an object but used to define an object.
+	-Class in JS isn't really a class like in C++.
+	-Function Constructors: A normal function that is used to construct objects
+*/
+
+Function Person() {
+	this.firstname = 'John';
+	this.lastname = 'Doe';
+
+}
+
+var john = new Person();
+console.log('John');
+
+// Gives you function with firstname and lastname
+// New is an operator. Immediately empty object is created. Then invokes function. When function is called, execution context generates variable called this.
+// As long as function doesn't return value then JS engine will return that object that was created by the new operator.
+
+
+
+// Lecture 58: Function Constructors and '.prototype'
+
+/*
+	-The prototype property on a function is NOT the prototype of the function.
+	-It's the prototype of any objects created if you're using function constructors.
+	-Why add method to the prototype method? Takes up memory space.
+*/
+
+Person.prototype.getFullName = function() {
+	return this.firstname + ' ' + this.lastname;
+}
+
+// Lecture 59: Danger Aside: 'new' and Functions
+
+/*
+	-Function constructors likely going away.
+*/
+
+// Lecture 60: Conceptual Aside: Built-In Function Constructors
+
+/*
+	-Actually created objects that contain primitives
+*/
+
+String.prototype.isLengthGreaterThan = function(limit) {
+	return this.length > limit;
+}
+
+console.log("John".isLengthGreaterThan(3));
+
+// Lecture 61: Dangerous Aside: Built-In Function Constructors
+
+/*
+	-Moment.js (library on dates)
+*/
+
+// Lecture 62: Dangerous Aside: Arrays and for..in
+
+// Lecture 63: Object.create and Pure Prototypal Inheritance
+
+/*
+	-Polyfill: Code that adds a Feature which the engine may lack.
+*/
+// Polyfill
+if (!Object.create) {
+	Object.create = function (o) {
+		if (arguments.length > 1) {
+			throw new Error('Object.create implementation' + ' only accepts the first parameter.');
+		}
+		function F() {}
+		F.prototype = o;
+		return new F();
+	};
+}
+
+// Lecture 64: ES6 and Classes
+
+/*
+	-Classes are not objects in other languages, but in JS it is.
+	-extend sets prototype.
+	-Syntactic Sugar: A different way to type somethign that doesn't change how it works under the hood.
+*/
+
+class Person {
+	constructor(firstname, lastname) {
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+
+	greet() {
+		return 'Hi' + firstname;
+	}
+
+}
+
+var john = new Person('John', 'Doe');
+
+class InformalPerson extends Person {
+	constructor(firstname, lastname) {
+		super(firstname, lastname);
+	}
+
+	greet() {
+		return 'Yo' + firstname;
+	}
+}
+
+// SECTION 7
+// Lecture 65: Initialization
+// Lecture 66: 'typeof', 'instanceof', and Figuring What Something Is
+// Lecture 67: Strict Mode
+// Lecture 68: Strict Mode Reference
+
+// SECTION 8:
+// Lecture 69: Learning From Other's Good Code
+// Lectures 70-72: Deep Dive into Source Code: jQuery
+
+// SECTION 9
+// Lecture 73: Requirements
+// Lecture 74: Structuring Safe Code
+// Lecture 75: Our Object and Its prototype
+// Lecture 76: Properties and Chainable Methods
+// Lecture 77: Adding jQuery Support
+// Lecture 78: Good Commenting
+// Lecture 79: Let's Use Our Framework
+// Lecture 80: A Side Note
+
+// SECTION 10
+// Lecture 81: TypeScript, ES6, and Transpiled Languages
+// Lecture 82: Transpiled Languages References
+
+// SECTION 11
+// Lecture 83: Existing and Upcoming Features
+// Lecture 84: ES6 Features Reference
