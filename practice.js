@@ -733,6 +733,14 @@ function Person(a) {
 // Lecture 69: Learning From Other's Good Code
 // Lectures 70-72: Deep Dive into Source Code: jQuery
 
+/*
+	-Manipulate the DOM.
+	-Method Chaining: Calling one method after another, and each affects the parent object
+	-Because methods are on the prototype it points back using return this.
+*/
+
+addChild().removeClass();
+
 // SECTION 9
 // Lecture 73: Requirements
 // Lecture 74: Structuring Safe Code
